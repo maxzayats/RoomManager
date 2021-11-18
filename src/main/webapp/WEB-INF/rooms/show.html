@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Room</title>
+</head>
+<body>
+	<h1>Room</h1>
+	<table>
+		<tr>
+			<td>
+				Room id:
+			</td>
+			<td th:text="${room.id}">
+				id
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Room Name:
+			</td>
+			<td th:text="${room.name}">
+				name
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Room size:
+			</td>
+			<td th:text="${room.size}">
+				size
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Room price:
+			</td>
+			<td th:text="${room.rentalPrice}">
+				price
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<form th:action="@{/rooms/{id}/edit(id=${room.id})}">
+					<input type="submit" value="Edit room"/>
+				</form>				
+			</td>
+			<td>
+				<form th:method="DELETE" th:action="@{/rooms/{id}(id=${room.getId()})}">
+					<input type="submit" value="Delete"/>
+				</form>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

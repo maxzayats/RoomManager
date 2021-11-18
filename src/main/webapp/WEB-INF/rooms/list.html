@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <style type="text/css">
+        .tg {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border-color: #ccc;
+        }
+
+        .tg td {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            padding: 10px 5px;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            word-break: normal;
+            border-color: #ccc;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .tg th {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            padding: 10px 5px;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            word-break: normal;
+            border-color: #ccc;
+            color: #333;
+            background-color: #f0f0f0;
+        }
+
+        .tg .tg-4eph {
+            background-color: #f9f9f9
+        }
+    </style>
+</head>
+<body>
+	<h1>List of rooms</h1>
+<table class="tg">
+	
+
+
+<tr>
+	<th width="120">Room name</th>
+	<th width="120">Room size</th>
+	<th width="80">Rental price</th>
+</tr>
+<tr th:each= "room : ${rooms}">
+	<td>
+		<a th:href="@{/rooms/{id}(id=${room.getId()})}"
+       th:text="${room.getName()}">name</a></d>
+	<td th:text="${room.getSize}">size</td>
+	<td th:text="${room.getRentalPrice}">price</td>
+</tr>
+</table>
+
+
+<br/>
+<hr/>
+<form action="/rooms/new">
+<input type="submit" value="New room">
+</form>
+
+
+</body>
+</html>
